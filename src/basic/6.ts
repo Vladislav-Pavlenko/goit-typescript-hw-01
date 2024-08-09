@@ -2,7 +2,7 @@ interface objectType {
   name: string;
   age: number;
   email: string;
-  address?: object;
+  address?: { city: string; country: string };
 }
 
 const mango: objectType = {

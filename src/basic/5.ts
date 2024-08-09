@@ -1,23 +1,21 @@
 enum DayOfWeek {
-  Monday = "false",
-  Tuesday = "false",
-  Wednesday = "false",
-  Thursday = "false",
-  Friday = "false",
-  Saturday = "true",
-  Sunday = "true",
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
 }
 
-type DayOfWeekKeys = keyof typeof DayOfWeek;
-
-const isWeekend = (day: DayOfWeekKeys): boolean => {
-  return Boolean(DayOfWeek[day]);
+const isWeekend = (day: string): boolean => {
+  return (
+    day === DayOfWeek[DayOfWeek.Saturday] || day === DayOfWeek[DayOfWeek.Sunday]
+  );
 };
 
 for (const key in DayOfWeek) {
-  if (Object.prototype.hasOwnProperty.call(DayOfWeek, key)) {
-    isWeekend(key as DayOfWeekKeys);
-  }
+  isWeekend(key);
 }
 
 export {};
